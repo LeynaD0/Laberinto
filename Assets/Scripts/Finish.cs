@@ -6,7 +6,6 @@ using TMPro;
 public class Finish : MonoBehaviour
 {
     public GameObject winScreen;
-    public GameObject hudScreen;
     public TextMeshProUGUI textTime;
 
     float tiempoPartida = 0.0f;
@@ -24,7 +23,6 @@ public class Finish : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             winScreen.SetActive(true);
-            hudScreen.SetActive(false);
             other.GetComponent<Movement>().enabled = false;
             estaJugando = false;
             textTime.text = "Tiempo: " + tiempoPartida.ToString();
