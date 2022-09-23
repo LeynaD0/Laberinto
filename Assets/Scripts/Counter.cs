@@ -5,35 +5,23 @@ using TMPro;
 
 public class Counter : MonoBehaviour
 {
-    public GameObject coin;
+    public GameObject[] coin;
 
     public TextMeshProUGUI textCoins;
 
-    public float coins;
+    public int coins;
 
-    bool coinActive = true;
-
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        coins.ToString("0");
-    }
-
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            coinActive = false;
-            //coins += 1f;
+            coin[].SetActive(false);
+            coins++;
         }
     }
     private void Update()
     {
-        if(coinActive == false)
-        {
-            coins++;
-            coin.SetActive(false);
-            textCoins.text = "Coins: " + coins.ToString();
-        }
-        
+        textCoins.text = "Coins: " + coins.ToString();
+        Debug.Log(coins);
     }
 }
