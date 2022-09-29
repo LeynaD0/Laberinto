@@ -5,14 +5,15 @@ using UnityEngine;
 public class Detection : MonoBehaviour
 {
     [SerializeField]
-    Material materialLightBlue;
+    Material materialLightBlue; //Material base que tienen las paredes.
 
     [SerializeField]
-    Material materialRed;
+    Material materialRed; // Material que se pone al chocar con el jugador.
 
     bool wallred = false;
     float timered = 2f;
 
+    //En el "Update" le estamos diciendo que si este es verdadero, se activa un tiempo para que cambie nuevamente de color, y si este llega a 0, el material cambia al color base, la condición "bool" vuelve a ser falsa y su tiempo se reinicia.
     private void Update()
     {
         if (wallred == true)
